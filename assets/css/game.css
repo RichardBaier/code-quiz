@@ -52,12 +52,17 @@ body {
     display: flex;
 }
 
+#question-bar {
+    flex-direction: column;
+}
+
 .hud-main-text {
     text-align: center;
 }
 
 #timer-column {
     margin-left: 4rem;
+    width: 50%;
 }
 
 #progressBar {

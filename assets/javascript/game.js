@@ -8,7 +8,7 @@ const timerText = document.querySelector("#timer");
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
-let timer = 0;
+let timer = 40;
 let questionCounter = 0;
 let availableQuestions = [];
 
@@ -53,9 +53,9 @@ const MAX_QUESTIONS = 4
 startGame = () => {
     questionCounter = 0
     score = 0
-    timer = 40
     availableQuestions = [...questions]
     getNewQuestion()
+    setTime()
 }
 
 getNewQuestion = () => {
@@ -81,6 +81,22 @@ getNewQuestion = () => {
     availableQuestions.splice(questionIndex, 1)
 
     acceptingAnswers = true
+}
+
+function setTime() {
+    var timerInterval = setInterval(function() {
+        timer--;
+        timerText.textContent = timer;
+    
+        if(timer === 0) {
+            clearInterval(timerInterval);
+
+            localStorage.setItem("mostRecentScore", score);
+
+            return window.location.assign("/end.html")
+        }
+    
+      }, 1000);
 }
 
 choices.forEach(choice => {
