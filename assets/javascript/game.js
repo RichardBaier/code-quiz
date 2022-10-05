@@ -3,10 +3,12 @@ const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progressText");
 const scoreText = document.querySelector("#score");
 const progressBarFull = document.querySelector("#progressBarFull");
+const timerText = document.querySelector("#timer");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
+let timer = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
@@ -51,6 +53,7 @@ const MAX_QUESTIONS = 4
 startGame = () => {
     questionCounter = 0
     score = 0
+    timer = 40
     availableQuestions = [...questions]
     getNewQuestion()
 }

@@ -48,8 +48,16 @@ body {
     font-size: 2rem;
 }
 
+.hud-item {
+    display: flex;
+}
+
 .hud-main-text {
     text-align: center;
+}
+
+#timer-column {
+    margin-left: 4rem;
 }
 
 #progressBar {
